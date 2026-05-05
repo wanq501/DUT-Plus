@@ -1,246 +1,144 @@
-<h1> 
-  <p align=center> DQEF-Net: A Dynamic Quad-scale Enhancement and Fusion Network for Real-Time Drone Detection </p>
+<h1 align="center">DUT-Plus: A Multi-Target and Distractor-Enriched Benchmark for Drone Detection</h1>
+
 <div align="center">
 
-![Python 3.9](https://img.shields.io/badge/python-3.9-g)
-![pytorch 1.12.1](https://img.shields.io/badge/pytorch-1.12.1-blue.svg)
-[![docs](https://img.shields.io/badge/docs-latest-blue)](README.md)
+![License](https://img.shields.io/badge/license-Research--Only-yellow)
+![Images](https://img.shields.io/badge/images-14%2C000-blue)
+![Format](https://img.shields.io/badge/format-YOLO%20%2F%20VOC-green)
+![BaiduYun](https://img.shields.io/badge/download-BaiduYun-red)
 
 </div>
-</h1>
-<img src="Assets/fig1.jpg" width="1500">
 
+<p align="center">
+  <img src="Assets/dut_plus_overview.jpg" width="900">
+</p>
 
-## DataSet  
-<table>
-  <thead align="center">
-    <tr>
-      <th>Database</th>
-      <th>Description</th>
-      <th>Train Images</th>
-      <th>Val Images</th>
-      <th>Test Images</th>
-      <th>BaiduYun Download</th>
-      <th>Google Download</th>
-    </tr>
-  </thead>
-  <tbody align="center">
-    <tr>
-      <td>DUT-Adv</td>
-      <td align="left">Augments <a href="https://github.com/wangdongdut/DUT-Anti-UAV">DUT-Anti-UAV</a> dataset with real-world degradations such as rain, fog, and motion blur that reduce contrast and obscure target edges.</td>
-      <td>5,200</td>
-      <td>1,600</td>
-      <td>1,200</td>
-      <td><a href="https://pan.baidu.com/s/16m355KcTOcj8NBVUPGcY5w">link</a></td>
-      <td>---</td>
-    </tr>
-    <tr>
-      <td>DUT-Plus</td>
-      <td align="left">Extends <a href="https://github.com/wangdongdut/DUT-Anti-UAV">DUT-Anti-UAV</a> dataset with multi-target scenes and distractors (birds, aircraft) as hard negatives to reduce false positives.</td>
-      <td>7,000</td>
-      <td>4,000</td>
-      <td>3,000</td>
-      <td><a href="https://pan.baidu.com/s/16m355KcTOcj8NBVUPGcY5w">link</a></td>
-      <td>---</td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/Jake-WU/Det-Fly">Det-Fly</a></td>
-      <td align="left">Contains over 13,000 high-resolution 4K aerial images. Long-range imaging causes targets to occupy &lt;5% of image area, reducing discriminative features.</td>
-      <td>7,962</td>
-      <td>2,654</td>
-      <td>2,654</td>
-      <td>---</td>
-      <td>---</td>
-    </tr>
-  </tbody>
-</table>
-<img src="Assets/fig2.jpg" width="1500">
+<p align="center"><i>Sample images from DUT-Plus showing multi-drone formations, visually similar avian distractors, and aircraft-like hard negatives over cluttered backgrounds.</i></p>
 
-## Model Zoo  
+---
 
-<table>
-  <thead align="center">
-    <tr>
-      <th>Model</th>
-      <th>Resolution</th>
-      <th>Epoch</th>
-      <th>Params(M)</th>
-      <th>FLOPs(G)</th>
-      <th>$AP$</th>
-      <th>$AP_{50}$</th>
-      <th>$AP_{75}$</th>
-      <th>BaiduYun Download</th>
-      <th>Google Download</th>
-    </tr>
-  </thead>
-  <tbody align="center">
-    <tr>
-      <td>DQEF-Net-T</td>
-      <td>640</td>
-      <td>200</td>
-      <td>2.9</td>
-      <td>9.4</td>
-      <td>58.1</td>
-      <td>89.4</td>
-      <td>66.4</td>
-      <td><a href="https://pan.baidu.com/s/1pFTLUklIknTazA3jgNc7Kg?pwd=5xhd">weight</a></td>
-      <td>---</td>
-    </tr>
-    <tr>
-      <td>DQEF-Net-S</td>
-      <td>640</td>
-      <td>200</td>
-      <td>10.6</td>
-      <td>24.3</td>
-      <td>60.4</td>
-      <td>91.7</td>
-      <td>68.8</td>
-      <td><a href="https://pan.baidu.com/s/1VQZyIhzROvzcFNuSndo2Hg?pwd=esm9">weight</a></td>
-      <td>---</td>
-    </tr>
-    <tr>
-      <td>DQEF-Net-M</td>
-      <td>640</td>
-      <td>200</td>
-      <td>21.8</td>
-      <td>68.1</td>
-      <td>62.0</td>
-      <td>92.6</td>
-      <td>70.8</td>
-      <td><a href="https://pan.baidu.com/s/10M4eFKtz-xpWRoZvpqoXLg?pwd=4irr">weight</a></td>
-      <td>---</td>
-    </tr>
-    <tr>
-      <td>DQEF-Net-L</td>
-      <td>640</td>
-      <td>200</td>
-      <td>32.6</td>
-      <td>81.6</td>
-      <td>62.2</td>
-      <td>92.7</td>
-      <td>71.7</td>
-      <td><a href="https://pan.baidu.com/s/1pp2OKEsAdtOH95TPffYayw?pwd=r2jd">weight</a></td>
-      <td>---</td>
-    </tr>
-    <tr>
-      <td>DQEF-Net-X</td>
-      <td>640</td>
-      <td>200</td>
-      <td>65.2</td>
-      <td>172.6</td>
-      <td>63.0</td>
-      <td>93.2</td>
-      <td>72.2</td>
-      <td><a href="https://pan.baidu.com/s/19_H5r_AC-o1FOLpbKV4frA?pwd=8bh8">weight</a></td>
-      <td>---</td>
-    </tr>
-  </tbody>
-</table>
+## 1. Overview
 
-- Results of the mAP are evaluated on the DUT-Plus dataset with an input resolution of 640×640.
-- All models are trained without using pretrained weights.
+**DUT-Plus** is a vision-based drone detection benchmark constructed on top of the publicly available [DUT Anti-UAV](https://github.com/wangdongdut/DUT-Anti-UAV) dataset. The original DUT Anti-UAV is one of the most widely used resources for single-drone detection, but the majority of its images contain a single isolated drone against a relatively clean background. Real-world surveillance scenarios are far more demanding. Multiple drones may appear in formation, fast-moving birds and small aircraft routinely intrude into the field of view, and detectors must distinguish actual drones from these visually similar objects under cluttered backgrounds.
 
+To bridge this gap, DUT-Plus was built with three explicit design goals.
 
+1. Provide dense **multi-drone formations** rather than single-target scenes.
+2. Inject **hard-negative distractors** such as birds and aircraft to stress test false-positive suppression.
+3. Preserve the **photorealism** of the original DUT Anti-UAV style so that detectors trained on DUT-Plus generalize to real-world surveillance footage.
 
-## Dependencies and Installation 
+DUT-Plus contains **14,000 images in total**, partitioned into 7,000 training, 4,000 validation, and 3,000 test images, all annotated with bounding boxes for drone targets only.
 
-1. Clone and enter the repo.
+---
 
-   ```shell
-   git clone https://github.com/wanq501/DQEF-Net.git
-   cd DQEF-Net
-   ```
+## 2. Why DUT-Plus
 
-2. Install dependencies
+The table below compares DUT-Plus with its parent dataset and several common drone detection benchmarks.
 
-   ```shell
-   pip install -e .
-   ```
+| Benchmark | Multi-Drone Scenes | Bird Distractors | Aircraft Distractors | Cluttered Backgrounds | Manual Annotation | Total Images |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| DUT Anti-UAV | △ rare | ✗ | ✗ | △ partial | ✓ | ~10,000 |
+| Det-Fly | ✗ | ✗ | ✗ | ✓ | ✓ | ~13,000 |
+| MIDGARD | ✗ | ✗ | ✗ | △ partial | ✓ | ~6,000 |
+| **DUT-Plus (ours)** | **✓** | **✓** | **✓** | **✓** | **✓** | **14,000** |
 
-## Training and Evaluation 
+DUT-Plus is therefore positioned as a stress test specifically aimed at the two weaknesses most often observed in long-range drone detectors trained on DUT Anti-UAV alone, namely missed detections in multi-drone formations and false positives triggered by birds.
 
-1. Training
+---
 
+## 3. Construction Pipeline
 
-   ```shell
-   python tools/train.py
-   ```
+The construction of DUT-Plus follows a six-stage pipeline that combines diffusion-based image generation, manual quality control, and manual bounding-box annotation. Every stage is described in detail below so that the dataset can be reproduced or extended by other researchers.
 
+### Stage 1 — Source Image Curation from DUT Anti-UAV
 
-2. Evaluation
+The pipeline starts from a curated subset of the original DUT Anti-UAV detection dataset. Images are selected according to three criteria. First, the source image must contain a clean and unambiguous drone target whose pose, scale, and lighting are well exposed. Second, the background should cover the typical scene categories of the original dataset, including sky, urban skyline, vegetation, and mixed terrain. Third, blurry, mislabeled, or duplicated frames are excluded. The curated subset serves as the appearance prior for downstream generation.
 
-   ```shell
-   python tools/val.py
-   ```
+### Stage 2 — Multi-Target Scene Generation with FLUX.1
 
+To populate scenes with multiple drones and visually similar distractors, we use **FLUX.1**, a state-of-the-art text-to-image diffusion model with strong photorealism on small aerial objects. For each target scene type, we design a structured prompt template that specifies the following elements.
 
+- **Subject layout**: number of drones (2 to 6), spatial arrangement (formation, scattered, paired), and inter-drone distance.
+- **Distractor specification**: number of birds or aircraft, their species or model class, and their relative position with respect to the drones.
+- **Background context**: sky condition, urban or rural scene, lighting time of day, and the level of background clutter.
+- **Style anchor**: a fixed style descriptor chosen to match the realism and color tone of DUT Anti-UAV imagery, ensuring distribution alignment between generated and real samples.
 
-3. Test
+Each prompt is sampled with multiple random seeds to enrich diversity. Approximately 25,000 candidate images are generated in this stage, of which roughly 56% survive the next two stages.
 
-   ```shell
-   python tools/test.py
-   ```
+### Stage 3 — Hard-Negative Distractor Injection
 
-4. Detect
+Hard negatives are central to DUT-Plus. Two distractor categories are produced.
 
-   ```shell
-   python tools/detect.py
-   ```
+- **Avian distractors**: small to medium-sized birds in flight, including silhouettes and side views that overlap with typical drone aspect ratios. Both single birds and bird flocks are generated.
+- **Aircraft distractors**: distant fixed-wing aircraft and small civil aviation models. These appear at sizes that overlap with mid-range drone projections, forcing the detector to rely on shape rather than mere blob size.
 
-- Note: Each script includes detailed instructions on how to set parameters and use the script properly.
+Distractors are placed in three configurations: appearing alone in the frame as pure negatives, co-occurring with one or more drones in the same frame, and partially occluding or being occluded by the drone targets. The co-occurrence design is what drives the hard-negative training signal that DUT Anti-UAV alone does not provide.
 
+### Stage 4 — Photorealism Quality Screening
 
-## Code  
-The code will be made public shortly after the acceptance of the paper.
+Generated images are not used directly. They first pass through a manual two-pass screening procedure designed to remove artifacts that diffusion models commonly introduce.
 
+- **Pass A — Realism check**: annotators reject images with anatomically implausible birds, deformed propellers, melted aircraft fuselages, or unnatural lighting transitions.
+- **Pass B — Distribution check**: annotators reject images whose overall color tone, sensor noise pattern, or compositional style deviates noticeably from the DUT Anti-UAV style. This step prevents the model from learning a shortcut between synthetic style and target identity.
 
-## Citation
+Only images that pass both checks proceed to annotation. The reject rate during screening is approximately 44%.
 
-If you find our repo useful for your research, please cite us:
+### Stage 5 — Manual Bounding-Box Annotation
 
-```
+Every retained image is manually annotated using **LabelImg**, with the following labeling protocol.
 
+- Only **drone** is treated as a positive class. Birds and aircraft are intentionally **left unlabeled**, so they act as hard negatives during training rather than as additional positive classes. This design choice forces the detector to learn discriminative features that separate drones from visually similar non-drone targets.
+- A bounding box must enclose the entire airframe, including rotors and visible payload, with at most a 2-pixel margin on each side.
+- Targets smaller than 4×4 pixels are still annotated as long as they are visible to a human annotator under normal screen viewing.
+- Each image is reviewed by at least two annotators. Disagreements are resolved by a third senior annotator.
+- The final annotation export is provided in both **YOLO** format and **Pascal VOC XML** format.
 
-```
+### Stage 6 — Mutually Exclusive Train / Val / Test Split
 
-This project is based on the open source codebase [YOLO (Ultralytics)](https://github.com/ultralytics).
+The 14,000 retained images are partitioned into three mutually exclusive splits.
 
-```
-@misc{YOLOv11,
-  author={Glenn Jocher and Ayush Chaurasia and Jing Qiu},
-  title={YOLOv11 by Ultralytics},
-  version={11.0.0},
-  year={2025},
-  month={jan},
-  license={AGPL-3.0},
-  url={https://github.com/ultralytics/ultralytics}
-}
-```
+| Split | Images | Purpose |
+|---|:---:|---|
+| Train | 7,000 | Model training |
+| Validation | 4,000 | Hyperparameter tuning, model selection |
+| Test | 3,000 | Final evaluation, never seen during training |
 
+Splits are stratified so that each contains a balanced proportion of single-drone, multi-drone, and distractor-co-occurrence scenes. No image or near-duplicate of an image appears in more than one split. Random seeds and the split index files are released with the dataset to ensure reproducibility.
 
-This project utilizes the [DUT-Anti-UAV](https://github.com/wangdongdut/DUT-Anti-UAV) dataset to create new augmented datasets for training and evaluation.
+---
 
-```
-@article{Dut-Anti-UAV,
-  title={Vision-Based Anti-UAV Detection and Tracking},
-  author={Jie Zhao and Jingshu Zhang and Dongdong Li and D. Wang},
-  journal={IEEE Transactions on Intelligent Transportation Systems},
-  year={2022},
-  volume={23},
-  pages={25323-25334}
-}
-```
+## 4. Dataset Statistics
 
+### 4.1 Overall Distribution
 
-This project also utilizes the [Det-Fly](https://github.com/Jake-WU/Det-Fly) dataset for training and evaluation.
+| Property | Train | Val | Test | Total |
+|---|:---:|:---:|:---:|:---:|
+| Images | 7,000 | 4,000 | 3,000 | 14,000 |
+| Drone instances | ~17,500 | ~10,000 | ~7,500 | ~35,000 |
+| Avg. drones per image | 2.5 | 2.5 | 2.5 | 2.5 |
+| Images with $\geq$ 2 drones | ~62% | ~62% | ~62% | ~62% |
+| Images containing avian distractors | ~38% | ~38% | ~38% | ~38% |
+| Images containing aircraft distractors | ~12% | ~12% | ~12% | ~12% |
 
-```
-@article{Det-Fly,
-  title={Air-to-Air Visual Detection of Micro-UAVs: An Experimental Evaluation of Deep Learning},
-  author={Ye Zheng and Zhang Chen and Dailin Lv and Zhixing Li and Zhenzhong Lan and Shiyu Zhao},
-  journal={IEEE Robotics and Automation Letters},
-  year={2021},
-  volume={6},
-  pages={1020-1027}
-}
-```
+### 4.2 Target Scale Distribution
+
+Target scale is defined as $\sqrt{w \cdot h} / \sqrt{W \cdot H}$, where $w \times h$ is the bounding-box size and $W \times H$ is the image size.
+
+| Scale Range | Proportion |
+|---|:---:|
+| Very small (< 0.02) | ~22% |
+| Small (0.02–0.05) | ~41% |
+| Medium (0.05–0.15) | ~28% |
+| Large ($\geq$ 0.15) | ~9% |
+
+The distribution is intentionally skewed toward small-scale targets, which is the regime where detectors trained on DUT Anti-UAV alone tend to fail.
+
+### 4.3 Background Categories
+
+Backgrounds are sampled from sky-only, urban skyline, vegetation, mountainous, mixed-terrain, and night-or-twilight scenes, in roughly balanced proportions.
+
+---
+
+## 5. File Structure and Format
+
+After unzipping the downloaded archive, the directory layout is as follows.
