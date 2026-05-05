@@ -9,7 +9,7 @@
 </div>
 
 <p align="center">
-  <img src="Assets/dut_plus_overview.jpg" width="900">
+  <img src="Assets/fig1.jpg" width="900">
 </p>
 
 <p align="center"><i>Sample images from DUT-Plus illustrating multi-drone scenes and visually similar distractors over cluttered backgrounds.</i></p>
