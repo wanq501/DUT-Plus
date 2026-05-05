@@ -36,10 +36,7 @@ DUT-Plus is positioned to address two weaknesses commonly observed in detectors 
 |---|---|:---:|:---:|---|
 | DUT Anti-UAV | Anti-UAV detection and tracking | △ rare | ✗ | Manual |
 | Det-Fly | Air-to-air micro-UAV detection | ✗ | ✗ | Manual |
-| Anti-UAV (Jiang et al.) | Anti-UAV tracking (RGB and IR) | ✗ | ✗ | Manual |
 | Drone-vs-Bird | Drone detection under bird interference | ✗ | ✓ | Manual |
-| Real-World (Pawełczyk et al.) | Multi-model quadcopter detection | ✗ | ✗ | Manual |
-| MIDGARD (Walter et al.) | Multi-MAV relative localization | ✗ | ✗ | Auto (UVDAR) |
 | **DUT-Plus (ours)** | **Anti-UAV detection** | **✓** | **✓** | **Manual** |
 
 ---
